@@ -1226,32 +1226,93 @@ footer {
   .home-about-invite { margin-bottom: 44px; }
 }
 /* ── Home: stores & booking ─────────────────────────── */
-.home-visit { background: var(--dark); color: #F5F2EB; padding: 112px 40px 104px; text-align: center; }
-.home-visit-eyebrow { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 0.4em; text-transform: uppercase; color: #B9C0BB; margin: 0 0 24px; }
-.home-visit-eyebrow span { font-family: 'Noto Serif TC', serif; font-size: 12px; letter-spacing: 0.3em; margin-left: 0.6em; }
-.home-visit h2 { font-family: 'Noto Serif TC', serif; font-size: clamp(24px, 2.6vw, 34px); font-weight: 500; letter-spacing: 0.14em; line-height: 1.6; margin: 0 0 20px; color: #fff; }
-.home-visit-sub { font-size: 14px; line-height: 2; letter-spacing: 0.06em; color: #C9C4BC; margin: 0 0 64px; }
-.home-stores { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1080px; margin: 0 auto 64px; border-top: 1px solid rgba(255,255,255,.18); }
-.home-store { padding: 36px 24px; text-decoration: none; color: inherit; border-right: 1px solid rgba(255,255,255,.18); transition: background .25s; }
-.home-store:last-child { border-right: 0; }
-.home-store:hover { background: rgba(255,255,255,.05); }
-.home-store-area { font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #B9C0BB; margin: 0 0 12px; }
-.home-store-name { font-family: 'Noto Serif TC', serif; font-size: 19px; font-weight: 500; letter-spacing: 0.12em; color: #fff; margin: 0 0 12px; }
-.home-store-addr { font-size: 13px; line-height: 1.9; letter-spacing: 0.04em; color: #C9C4BC; margin: 0 0 14px; }
-.home-store-map { font-size: 12px; letter-spacing: 0.16em; color: #B9C0BB; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: 2px; }
-.home-visit-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-.home-visit-btn { display: inline-block; padding: 15px 40px; font-size: 14px; letter-spacing: 0.18em; text-decoration: none; transition: background .25s, color .25s, border-color .25s; }
-.home-visit-btn.primary { background: #F5F2EB; color: var(--dark); border: 1.5px solid #F5F2EB; }
-.home-visit-btn.primary:hover { background: transparent; color: #F5F2EB; }
-.home-visit-btn.ghost { border: 1.5px solid rgba(255,255,255,.45); color: #F5F2EB; }
-.home-visit-btn.ghost:hover { border-color: #F5F2EB; background: rgba(255,255,255,.06); }
+.home-visit { background: #fff; color: var(--dark); padding: 120px 40px 112px; text-align: left; border-top: 1px solid #ECECEC; }
+.home-visit > * { max-width: 1200px; margin-left: auto; margin-right: auto; }
+.home-visit-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #9A9A9A; margin-bottom: 14px; }
+.home-visit-eyebrow span { display: none; }
+.home-visit h2 { font-family: 'Noto Serif TC', serif; font-size: clamp(24px, 2.4vw, 32px); font-weight: 500; letter-spacing: 0.1em; line-height: 1.6; margin-bottom: 18px; color: var(--dark); }
+.home-visit-sub { font-size: 14px; line-height: 2; letter-spacing: 0.04em; color: #888; margin-bottom: 56px; }
+.home-stores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 56px; }
+.home-store { display: block; padding: 28px 0 0; text-decoration: none; color: inherit; border-top: 1px solid var(--dark); }
+.home-store-area { font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #9A9A9A; margin-bottom: 10px; }
+.home-store-name { font-size: 18px; font-weight: 700; letter-spacing: 0.06em; color: var(--dark); margin-bottom: 8px; }
+.home-store-addr { font-size: 14px; line-height: 1.8; color: #888; margin-bottom: 12px; }
+.home-store-map { font-size: 13px; letter-spacing: 0.1em; color: var(--dark); border-bottom: 1px solid var(--dark); padding-bottom: 2px; }
+.home-store:hover .home-store-map { color: #888; border-color: #888; }
+.home-visit-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.home-visit-btn { display: inline-block; padding: 14px 36px; font-size: 14px; letter-spacing: 0.14em; text-decoration: none; transition: background .2s, color .2s; }
+.home-visit-btn.primary { background: var(--dark); color: #fff; border: 1.5px solid var(--dark); }
+.home-visit-btn.primary:hover { background: #fff; color: var(--dark); }
+.home-visit-btn.ghost { border: 1.5px solid var(--dark); color: var(--dark); }
+.home-visit-btn.ghost:hover { background: var(--dark); color: #fff; }
 @media (max-width: 960px) {
   .home-visit { padding: 80px 20px 72px; }
   .home-visit-sub { margin-bottom: 40px; }
   .home-visit-sub br { display: none; }
   .home-stores { grid-template-columns: 1fr; margin-bottom: 44px; }
-  .home-store { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.18); padding: 28px 8px; }
+  .home-store { padding: 24px 0 8px; }
   .home-visit-btn { width: 100%; max-width: 320px; }
+}
+/* ── Series grid (truething-style) ─────────────────── */
+.series { background: #fff; padding: 112px 40px 120px; }
+.series-hd { max-width: 1200px; margin: 0 auto 48px; }
+.series-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #9A9A9A; margin-bottom: 14px; }
+.series-hd h2 { font-family: 'Noto Serif TC', serif; font-size: clamp(24px, 2.4vw, 32px); font-weight: 500; letter-spacing: 0.1em; color: var(--dark); }
+.series-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 16px; max-width: 1200px; margin: 0 auto; }
+.series-card { display: block; text-decoration: none; color: inherit; }
+.series-img { aspect-ratio: 4 / 3; overflow: hidden; background: #F2F2F2; margin-bottom: 14px; }
+.series-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s ease, opacity .3s; }
+.series-card:hover .series-img img { transform: scale(1.03); }
+.series-card h3 { font-size: 17px; font-weight: 700; letter-spacing: 0.03em; color: var(--dark); margin-bottom: 4px; }
+.series-card p { font-size: 14px; color: #8A8A8A; letter-spacing: 0.04em; }
+@media (max-width: 960px) {
+  .series { padding: 72px 16px 80px; }
+  .series-grid { grid-template-columns: 1fr 1fr; gap: 36px 12px; }
+  .series-card h3 { font-size: 15px; }
+  .series-card p { font-size: 12px; }
+}
+@media (max-width: 520px) {
+  .series-grid { grid-template-columns: 1fr; gap: 40px; }
+  .series-card h3 { font-size: 17px; }
+  .series-card p { font-size: 14px; }
+}
+
+/* ── Desktop: fixed left sidebar navigation ────────── */
+@media (min-width: 961px) {
+  body { background: #fff; padding-left: 260px; }
+  #home-content { background: #fff; }
+  .site-header,
+  .site-header.header-transparent {
+    top: 0; left: 0; bottom: 0; right: auto; width: 260px; height: auto;
+    display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;
+    padding: 56px 40px; overflow-y: auto;
+    background: #fff; backdrop-filter: none; border: 0;
+  }
+  .site-logo { order: -1; padding: 0; margin: 0 0 88px; align-items: flex-start; }
+  .brand-logo-img,
+  body.dark-bg .site-header.header-transparent .brand-logo-img { height: auto; width: 150px; filter: none; }
+  .brand-nav { flex-direction: column; align-items: flex-start; }
+  .brand-nav > a, .nav-dropdown > a,
+  body.dark-bg .site-header.header-transparent .brand-nav > a,
+  body.dark-bg .site-header.header-transparent .nav-dropdown > a {
+    height: auto; padding: 0; margin: 0 0 26px;
+    font-family: -apple-system, "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    font-size: 17px; font-weight: 700; letter-spacing: 0.12em;
+    color: var(--dark); border: 0;
+  }
+  .brand-nav > a:hover, .nav-dropdown:hover > a,
+  body.dark-bg .site-header.header-transparent .brand-nav > a:hover,
+  body.dark-bg .site-header.header-transparent .nav-dropdown:hover > a { color: #9A9A9A; border: 0; }
+  .nav-dropdown { width: 100%; }
+  .nav-dropdown-menu {
+    position: static; display: none; opacity: 1; transform: none; pointer-events: all;
+    background: none; box-shadow: none; border: 0; min-width: 0; margin: -12px 0 22px;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu a { padding: 5px 0; font-size: 14px; color: #8A8A8A; background: none; }
+  .nav-dropdown-menu a:hover { color: var(--dark); background: none; }
+  .menu-btn { display: none; }
+  .page-hero { height: 100vh; }
 }
 </style>
 </head>
@@ -1375,46 +1436,79 @@ footer {
       <p class="home-about-desc">我們陪每一位屋主，<br class="m">從無數的品牌、花色、規格，<br>篩選出真正適合這個家的答案。</p>
       <p class="home-about-closing">以木與布 ✧ 重新定義家的溫度，<br>這是我們一直在做的事。</p>
       <p class="home-about-invite">現在就來南島室物所，一起打造夢想的家。</p>
-      <a href="#sanwell" class="home-about-btn">探索所有地板系列</a>
+      <a href="#series" class="home-about-btn">探索所有地板系列</a>
     </div>
   </section>
 
-  <!-- 2. Category Grid -->
-  <div class="home-cat-grid">
-    <a class="home-cat-item fi" href="#sanwell">
-      <img src="assets/cat_laminate.jpg" alt="超耐磨木地板">
-      <div class="home-cat-label">
-        <h3>超耐磨木地板</h3>
-        <div class="home-cat-line c1"></div>
-      </div>
-    </a>
-    <a class="home-cat-item fi" href="#aquastop">
-      <img src="assets/cat_spc.jpg" alt="SPC石塑地板">
-      <div class="home-cat-label">
-        <h3>SPC石塑地板</h3>
-        <div class="home-cat-line c2"></div>
-      </div>
-    </a>
-    <a class="home-cat-item fi" href="#sanxia">
-      <img src="assets/pvc_sanxia_hero.jpg" alt="PVC塑膠地磚">
-      <div class="home-cat-label">
-        <h3>PVC塑膠地磚</h3>
-        <div class="home-cat-line c3"></div>
-      </div>
-    </a>
-  </div>
-
-  <!-- 3. Herringbone Split (text left, img right) -->
-  <div class="home-split">
-    <div class="home-split-txt fi">
-      <h2>人字拼地板 —<br>細節即是品味</h2>
-      <p>每一塊木板以精準角度交錯排列，在地面構成沉靜而有節奏的紋路。無需多餘裝飾，人字拼本身就是空間的語言——溫潤、雅致，歷久彌新。</p>
-      <a class="home-split-btn" href="#krono-herringbone">探索人字拼系列</a>
+  <!-- 2. Series Grid -->
+  <section class="series" id="series">
+    <div class="series-hd fi">
+      <p class="series-eyebrow">Series</p>
+      <h2>地板系列</h2>
     </div>
-    <div class="home-split-img fi">
-      <img src="assets/herringbone_room.jpg" alt="人字拼地板空間實景" loading="lazy">
+    <div class="series-grid">
+      <a class="series-card fi" href="#sanwell">
+        <div class="series-img"><img src="https://raw.githubusercontent.com/Maxx1521/south-home-linebot/master/assets/fujisan_hero.jpg" alt="山井 富士山系列 超耐磨木地板" loading="lazy"></div>
+        <h3>山井 富士山系列</h3>
+        <p>超耐磨木地板</p>
+      </a>
+      <a class="series-card fi" href="#egger">
+        <div class="series-img"><img src="https://tcfl.com.tw/wp-content/uploads/2019/05/BR_HOME_Flooring_R3_zh-tw_TW-1500x659.png" alt="EGGER 愛格 Aqua+ 防潮系列" loading="lazy"></div>
+        <h3>EGGER 愛格</h3>
+        <p>Aqua+ 防潮系列</p>
+      </a>
+      <a class="series-card fi" href="#robina">
+        <div class="series-img"><img src="https://www.wecanyes.com.tw/wp-content/uploads/%E7%BE%85%E8%B3%93%E5%9C%B0%E6%9D%BF_AI_3101_%E4%BA%9E%E5%A0%A4%E5%85%8B_%E5%A8%81%E8%82%AF%E9%9B%85%E9%A3%BE%E8%B6%85%E8%80%90%E7%A3%A8%E6%9C%A8%E5%9C%B0%E6%9D%BF.webp" alt="ROBINA 羅賓 Classic · Premium 系列" loading="lazy"></div>
+        <h3>ROBINA 羅賓</h3>
+        <p>Classic · Premium 系列</p>
+      </a>
+      <a class="series-card fi" href="#dongwhal">
+        <div class="series-img"><img src="https://hoyard.com.tw/wp-content/uploads/2024/11/NC001%E9%A6%96%E9%81%B8%E6%A9%A1%E6%9C%A8-1-1.jpg" alt="Dongwhal 都華 超耐磨木地板" loading="lazy"></div>
+        <h3>Dongwhal 都華</h3>
+        <p>超耐磨木地板</p>
+      </a>
+      <a class="series-card fi" href="#krono-herringbone">
+        <div class="series-img"><img src="https://www.krono-original.com/themes/custom/krono_theme/images/classic-category/floor-classic.jpg" alt="KRONO Original Picasso · KO 系列" loading="lazy"></div>
+        <h3>KRONO Original</h3>
+        <p>Picasso · KO 系列</p>
+      </a>
+      <a class="series-card fi" href="#krono-wide">
+        <div class="series-img"><img src="https://www.krflooring.com.tw/wp-content/uploads/2025/03/picasso-a.jpg" alt="KRONO 寬版系列 寬板設計" loading="lazy"></div>
+        <h3>KRONO 寬版系列</h3>
+        <p>寬板設計</p>
+      </a>
+      <a class="series-card fi" href="#twin-oaks">
+        <div class="series-img"><img src="https://uafloors.com/storage/upload/product/image/2025-05-21/817jM3K1f7T6rNbrYFbejPf4zIMb8RzsbrkDUWMS.jpeg" alt="Twin Oaks 雙橡園 Heritage · Reserve 系列" loading="lazy"></div>
+        <h3>Twin Oaks 雙橡園</h3>
+        <p>Heritage · Reserve 系列</p>
+      </a>
+      <a class="series-card fi" href="#woodland">
+        <div class="series-img"><img src="https://img.meepshop.com/WyjqMMZ3_ttefq4IZdXNel4yPfNXaj9mV3DVeKoi4fs/w:1920/q:80/Z3M6Ly9pbWcubWVlcGNsb3VkLmNvbS9tZWVwc2hvcC9lMTY1NTIyYS1lY2E5LTQ5YzItYjFhYi0yYWFmNmFiZDM1ZTAvZmlsZXMvYjFlNWUyY2ItOWRiNS00N2I1LWFiNjktNDkzNWNmNGNjZmFiLmpwZw" alt="森 WoodLand 超耐磨木地板" loading="lazy"></div>
+        <h3>森 WoodLand</h3>
+        <p>超耐磨木地板</p>
+      </a>
+      <a class="series-card fi" href="#panstone">
+        <div class="series-img"><img src="https://tcfl.com.tw/wp-content/uploads/2025/07/PKL-1005-%E5%AE%89%E5%A6%AE%E4%BA%9E%E6%A0%B8%E6%A1%83_%E9%81%93%E5%85%B73_300kb.jpg" alt="Panstone 派斯 派斯系列" loading="lazy"></div>
+        <h3>Panstone 派斯</h3>
+        <p>派斯系列</p>
+      </a>
+      <a class="series-card fi" href="#sanxia">
+        <div class="series-img"><img src="https://www.ssefloor.com.tw/upload-files/spc/EA0607-1.jpg" alt="晶鋼防水系列 SPC 石塑地板" loading="lazy"></div>
+        <h3>晶鋼防水系列</h3>
+        <p>SPC 石塑地板</p>
+      </a>
+      <a class="series-card fi" href="#aquastop">
+        <div class="series-img"><img src="https://img.meepshop.com/U75DeYD5ggaf6qLYXS8eJiYiS7yz80UoBkruPiWv798/w:1200/Z3M6Ly9pbWcubWVlcGNsb3VkLmNvbS9tZWVwc2hvcC9lMTY1NTIyYS1lY2E5LTQ5YzItYjFhYi0yYWFmNmFiZDM1ZTAvZmlsZXMvYzI2MmNkYTQtMGYwNy00ZWMyLWFmMjktMWYyOWUwMTA0MGFlLnBuZw" alt="AquaStop 酷石 SPC 石塑卡扣地板" loading="lazy"></div>
+        <h3>AquaStop 酷石</h3>
+        <p>SPC 石塑卡扣地板</p>
+      </a>
+      <a class="series-card fi" href="#decoria">
+        <div class="series-img"><img src="https://static.wixstatic.com/media/b289c7_ab8d6c055ffa459bb720a336b0fcf9fb~mv2.png/v1/fill/w_1891,h_1257,al_c,q_95,enc_avif,quality_auto/b289c7_ab8d6c055ffa459bb720a336b0fcf9fb~mv2.png" alt="DECORIA PVC 塑膠地磚" loading="lazy"></div>
+        <h3>DECORIA</h3>
+        <p>PVC 塑膠地磚</p>
+      </a>
     </div>
-  </div>
+  </section>
 
   <!-- 4. Stores & Booking -->
   <section class="home-visit fi">
@@ -2747,6 +2841,10 @@ function route(id) {
   if (!id || id === 'about') {
     showHero();
     history.pushState({ page: 'home' }, '', location.pathname);
+  } else if (id === 'series') {
+    showHero();
+    history.pushState({ page: 'home' }, '', location.pathname);
+    requestAnimationFrame(() => document.getElementById('series').scrollIntoView({ behavior: 'smooth' }));
   } else if (id === 'warranty') {
     showWarranty();
     history.pushState({ page: 'warranty' }, '', '#warranty');
@@ -2789,7 +2887,7 @@ window.addEventListener('popstate', e => {
 // init — restore page from URL hash on load/refresh
 (function initRoute() {
   const hash = location.hash.slice(1);
-  if (!hash || hash === 'about') {
+  if (!hash || hash === 'about' || hash === 'series') {
     showHero();
     history.replaceState({ page: 'home' }, '', location.pathname);
   } else if (hash === 'warranty') {
