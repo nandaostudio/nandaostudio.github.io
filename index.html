@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500&family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --green:  #848F89;
@@ -1330,6 +1330,82 @@ body.home-grid .site-header { background: #fff; border-bottom-color: #EEE; }
   body.home-grid .series { padding-top: 24px; }
   .brand-logo-img { height: 36px; }
 }
+/* ── novdesign-inspired refinements ─────────────────── */
+.brand-mark-img { display: none; }
+.series-hd { padding-bottom: 40px; margin-bottom: 48px; border-bottom: 1px solid #DADADA; }
+.series-hd h2 { font-family: -apple-system, "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; font-size: 20px; font-weight: 400; letter-spacing: 0.08em; color: var(--dark); }
+.series-en { font-weight: 700; letter-spacing: 0.04em; margin-right: 18px; }
+.series-sub { margin-top: 12px; font-size: 17px; font-weight: 300; letter-spacing: 0.16em; color: #555; }
+.series-eyebrow { display: none; }
+.series-card { text-align: center; }
+.series-img { margin-bottom: 20px; }
+.series-card h3 { font-size: 18px; font-weight: 400; letter-spacing: 0.06em; margin-bottom: 6px; }
+.series-card p { font-size: 13px; font-weight: 300; letter-spacing: 0.12em; color: #999; }
+@media (min-width: 961px) {
+  body.home-grid .series-hd { display: block; }
+  body.home-grid .series { padding: 120px 72px 120px 32px; }
+  body.home-grid .series-grid { gap: 64px 36px; }
+  .site-header, .site-header.header-transparent { padding: 64px 40px 48px; border-right: 1px solid #EEE; }
+  .site-logo { margin-bottom: 72px; }
+  .brand-mark-img { display: block; width: 46px; height: auto; margin: 0 0 28px; }
+  .brand-nav > a, .nav-dropdown > a,
+  body.dark-bg .site-header.header-transparent .brand-nav > a,
+  body.dark-bg .site-header.header-transparent .nav-dropdown > a {
+    font-size: 17px; font-weight: 400; letter-spacing: 0.18em; margin-bottom: 28px;
+  }
+  .nav-dropdown > a::after { content: ''; display: inline-block; width: 6px; height: 6px; margin-left: 12px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-3px) rotate(45deg); transition: transform .2s; }
+  .nav-dropdown:hover > a::after { transform: translateY(0) rotate(-135deg); }
+  .nav-dropdown-menu { padding-left: 16px; }
+  .nav-dropdown-menu a { font-size: 15px; font-weight: 300; letter-spacing: 0.1em; padding: 7px 0; }
+}
+@media (max-width: 960px) {
+  body.home-grid .series { padding-top: 40px; }
+  .series-hd { padding-bottom: 28px; margin-bottom: 36px; }
+  .series-hd h2 { font-size: 17px; }
+  .series-sub { font-size: 14px; }
+}
+/* ── Side menu (novdesign-style tree) ───────────────── */
+.side-menu { display: none; }
+@media (min-width: 961px) {
+  .site-header .brand-nav { display: none; }
+  .side-menu { display: block; width: 100%; font-family: 'Zen Kaku Gothic Antique', "PingFang TC", "Microsoft JhengHei", sans-serif; }
+  .side-menu a, .side-menu button {
+    display: flex; align-items: baseline; width: 100%; padding: 0; margin: 0 0 22px;
+    background: none; border: 0; cursor: pointer; text-align: left; text-decoration: none;
+    font: inherit; font-size: 16px; font-weight: 400; letter-spacing: 0.02em; color: #1C1C1C;
+    transition: color .15s;
+  }
+  .side-menu a:hover, .side-menu button:hover { color: #8A8A8A; }
+  .side-menu span { margin-left: 10px; font-size: 13px; color: #9A9A9A; letter-spacing: 0.08em; }
+  .sm-toggle::before {
+    content: ''; flex: none; width: 7px; height: 7px; margin: 0 12px 0 2px;
+    border-left: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor;
+    transform: translateY(-3px) rotate(-45deg); transition: transform .2s;
+  }
+  .sm-toggle.open::before { transform: translateY(0) rotate(135deg); }
+  .sm-body { padding-left: 20px; }
+  .sm-root + .sm-body { display: none; }
+  .sm-root.open + .sm-body { display: block; }
+  .sm-link { padding-left: 21px !important; }
+  .sm-sub { display: none; padding: 0 0 6px 41px; }
+  .sm-toggle.open + .sm-sub { display: block; }
+  .sm-sub a { font-size: 15px; margin-bottom: 18px; letter-spacing: 0.06em; }
+  .side-menu a.active { font-weight: 700; color: #1C1C1C; }
+  .site-logo { margin-bottom: 64px; }
+}
+.series-hd h2, .series-sub, .series-card h3, .series-card p { font-family: 'Zen Kaku Gothic Antique', "PingFang TC", "Microsoft JhengHei", sans-serif; }
+.series-hd h2 { font-size: 17px; }
+.series-en { font-weight: 700; }
+.series-sub { font-size: 16px; font-weight: 400; color: #333; letter-spacing: 0.2em; margin-top: 10px; }
+.series-card h3 { font-size: 15px; font-weight: 400; color: #1C1C1C; }
+.series-card p { font-size: 12px; }
+@media (min-width: 961px) {
+  body { padding-left: 300px; }
+  .site-header, .site-header.header-transparent { width: 300px; padding-left: 40px; padding-right: 28px; }
+  .side-menu a, .side-menu button { white-space: nowrap; }
+  .sm-body { padding-left: 12px; }
+  .sm-sub { padding-left: 33px; }
+}
 </style>
 </head>
 <body>
@@ -1364,7 +1440,7 @@ body.home-grid .site-header { background: #fff; border-bottom-color: #EEE; }
       </div>
     </div>
   </nav>
-  <a class="site-logo" href="#series"><img class="brand-logo-img" src="assets/logo_wordmark.png" alt="南島室物所 Interior Materials Studio"></a>
+  <a class="site-logo" href="#series"><img class="brand-mark-img" src="assets/logo_mark.svg" alt=""><img class="brand-logo-img" src="assets/logo_wordmark.png" alt="南島室物所 Interior Materials Studio"></a>
   <nav class="brand-nav brand-nav-right">
     <a href="#warranty">保固範圍</a>
     <div class="nav-dropdown">
@@ -1375,6 +1451,48 @@ body.home-grid .site-header { background: #fff; border-bottom-color: #EEE; }
       </div>
     </div>
     <a href="#contact">聯絡我們</a>
+  </nav>
+  <nav class="side-menu" aria-label="主選單">
+    <button class="sm-toggle sm-root open" type="button">MENU</button>
+    <div class="sm-body">
+      <a class="sm-link" href="#about">ABOUT<span>關於我們</span></a>
+      <a class="sm-link" href="#series">SELECTED<span>嚴選地板</span></a>
+      <div class="sm-group">
+        <button class="sm-toggle" type="button">BRANDS<span>代理品牌</span></button>
+        <div class="sm-sub">
+          <a href="#sanwell">山井</a>
+          <a href="#egger">EGGER 愛格</a>
+          <a href="#robina">ROBINA 羅賓</a>
+          <a href="#dongwhal">Dongwhal 都華</a>
+          <a href="#krono-herringbone">KRONO ORIGINAL</a>
+          <a href="#krono-wide">KRONO 寬版</a>
+          <a href="#panstone">Panstone 派斯</a>
+          <a href="#twin-oaks">Twin Oaks 雙橡園</a>
+          <a href="#woodland">森 WoodLand</a>
+          <a href="#sanxia">三夏 晶鋼防水</a>
+          <a href="#aquastop">AquaStop 酷石</a>
+          <a href="#decoria">DECORIA</a>
+        </div>
+      </div>
+      <div class="sm-group">
+        <button class="sm-toggle" type="button">PRODUCTS<span>產品分類</span></button>
+        <div class="sm-sub">
+          <a href="#sanwell">超耐磨卡扣木地板</a>
+          <a href="#twin-oaks">海島型實木地板</a>
+          <a href="#sanxia">SPC 石塑地板</a>
+          <a href="#decoria">PVC 塑膠地磚</a>
+        </div>
+      </div>
+      <a class="sm-link" href="#warranty">WARRANTY<span>保固範圍</span></a>
+      <div class="sm-group">
+        <button class="sm-toggle" type="button">SERVICE<span>施工須知</span></button>
+        <div class="sm-sub">
+          <a href="#process">服務流程</a>
+          <a href="#care">地板保養需知</a>
+        </div>
+      </div>
+      <a class="sm-link" href="#contact">CONTACT<span>聯絡我們</span></a>
+    </div>
   </nav>
   <button class="menu-btn" id="menuBtn" aria-label="選單">
     <span></span><span></span><span></span>
@@ -1459,8 +1577,8 @@ body.home-grid .site-header { background: #fff; border-bottom-color: #EEE; }
   <!-- 2. Series Grid -->
   <section class="series" id="series">
     <div class="series-hd fi">
-      <p class="series-eyebrow">Selected</p>
-      <h2>嚴選地板</h2>
+      <h2><span class="series-en">SELECTED.</span>嚴選地板</h2>
+      <p class="series-sub">12 個系列・木與石的日常選材</p>
     </div>
     <div class="series-grid">
       <a class="series-card fi" href="#sanwell">
@@ -2866,7 +2984,22 @@ function showCare() {
   });
 }
 
+// ── Side menu: accordion + active state ──────────────────────────────
+document.querySelectorAll('.side-menu .sm-toggle').forEach(btn => {
+  btn.addEventListener('click', () => btn.classList.toggle('open'));
+});
+function setSideActive(id) {
+  const links = document.querySelectorAll('.side-menu a');
+  links.forEach(a => a.classList.remove('active'));
+  const target = [...links].find(a => a.getAttribute('href') === '#' + (id || 'series'));
+  if (!target) return;
+  target.classList.add('active');
+  const group = target.closest('.sm-group');
+  if (group) group.querySelector('.sm-toggle').classList.add('open');
+}
+
 function route(id) {
+  setSideActive(id);
   if (!id || id === 'series') {
     showHero();
     history.pushState({ page: 'home' }, '', location.pathname);
@@ -2915,6 +3048,7 @@ window.addEventListener('popstate', e => {
 // init — restore page from URL hash on load/refresh
 (function initRoute() {
   const hash = location.hash.slice(1);
+  setSideActive(hash);
   if (!hash || hash === 'series') {
     showHero();
     history.replaceState({ page: 'home' }, '', location.pathname);
