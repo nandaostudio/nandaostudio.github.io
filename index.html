@@ -4,7 +4,17 @@
 <meta charset="UTF-8">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>地板系列 | 南島 Nandao</title>
+<title>南島室物所｜高雄木地板・超耐磨・SPC 石塑地板</title>
+<meta name="description" content="南島室物所｜高雄木地板專門店。超耐磨木地板、SPC 石塑地板、海島型實木地板、PVC 塑膠地磚，左營・三民・苓雅三間門市，免費到府丈量，LINE 預約。">
+<link rel="canonical" href="https://nandaostudio.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="南島室物所">
+<meta property="og:title" content="南島室物所｜以木與布，重新定義家的溫度">
+<meta property="og:description" content="南島室物所｜高雄木地板專門店。超耐磨木地板、SPC 石塑地板、海島型實木地板、PVC 塑膠地磚，左營・三民・苓雅三間門市，免費到府丈量，LINE 預約。">
+<meta property="og:url" content="https://nandaostudio.github.io/">
+<meta property="og:image" content="https://nandaostudio.github.io/assets/hero2.jpg">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
@@ -1119,23 +1129,29 @@ footer {
 
 .home-split {
   display: grid;
-  grid-template-columns: 1.6fr 0.4fr;
-  min-height: 360px;
-  margin-bottom: 80px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+  max-width: 1200px;
+  margin: 0 auto 96px;
+  padding: 0 40px;
 }
-.home-split-img { overflow: hidden; }
-.home-split-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.home-split-img { overflow: hidden; aspect-ratio: 1 / 1; }
+.home-split-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s ease; }
+.home-split-img:hover img { transform: scale(1.03); }
 .home-split-txt {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 80px 72px;
+  padding: 0 0 0 24px;
+  max-width: 460px;
   background: transparent;
 }
 .home-split-txt h2 {
   font-family: 'Noto Serif TC', serif;
-  font-size: clamp(20px, 2.2vw, 32px);
-  font-weight: 700;
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 500;
+  letter-spacing: 0.08em;
   line-height: 1.5;
   margin-bottom: 24px;
   color: var(--dark);
@@ -1196,9 +1212,9 @@ footer {
 @media (max-width: 960px) {
   .home-cat-grid { grid-template-columns: 1fr; padding: 0 16px; gap: 16px; margin-bottom: 40px; }
   .home-cat-item img { aspect-ratio: 16/9; }
-  .home-split { grid-template-columns: 1fr; margin-bottom: 40px; }
-  .home-split-img { min-height: 280px; }
-  .home-split-txt { padding: 56px 32px; }
+  .home-split { grid-template-columns: 1fr; gap: 32px; padding: 0 16px; margin-bottom: 64px; }
+  .home-split-img { order: -1; }
+  .home-split-txt { padding: 0 12px; max-width: none; }
   .home-rooms { padding: 72px 28px; }
   .home-rooms-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 0; max-width: 420px; }
   .home-about { padding: 88px 20px 80px; margin-bottom: 40px; }
@@ -1208,6 +1224,34 @@ footer {
   .home-about-rule { margin-bottom: 44px; }
   .home-about-closing { margin-top: 48px; }
   .home-about-invite { margin-bottom: 44px; }
+}
+/* ── Home: stores & booking ─────────────────────────── */
+.home-visit { background: var(--dark); color: #F5F2EB; padding: 112px 40px 104px; text-align: center; }
+.home-visit-eyebrow { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 0.4em; text-transform: uppercase; color: #B9C0BB; margin: 0 0 24px; }
+.home-visit-eyebrow span { font-family: 'Noto Serif TC', serif; font-size: 12px; letter-spacing: 0.3em; margin-left: 0.6em; }
+.home-visit h2 { font-family: 'Noto Serif TC', serif; font-size: clamp(24px, 2.6vw, 34px); font-weight: 500; letter-spacing: 0.14em; line-height: 1.6; margin: 0 0 20px; color: #fff; }
+.home-visit-sub { font-size: 14px; line-height: 2; letter-spacing: 0.06em; color: #C9C4BC; margin: 0 0 64px; }
+.home-stores { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1080px; margin: 0 auto 64px; border-top: 1px solid rgba(255,255,255,.18); }
+.home-store { padding: 36px 24px; text-decoration: none; color: inherit; border-right: 1px solid rgba(255,255,255,.18); transition: background .25s; }
+.home-store:last-child { border-right: 0; }
+.home-store:hover { background: rgba(255,255,255,.05); }
+.home-store-area { font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #B9C0BB; margin: 0 0 12px; }
+.home-store-name { font-family: 'Noto Serif TC', serif; font-size: 19px; font-weight: 500; letter-spacing: 0.12em; color: #fff; margin: 0 0 12px; }
+.home-store-addr { font-size: 13px; line-height: 1.9; letter-spacing: 0.04em; color: #C9C4BC; margin: 0 0 14px; }
+.home-store-map { font-size: 12px; letter-spacing: 0.16em; color: #B9C0BB; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: 2px; }
+.home-visit-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.home-visit-btn { display: inline-block; padding: 15px 40px; font-size: 14px; letter-spacing: 0.18em; text-decoration: none; transition: background .25s, color .25s, border-color .25s; }
+.home-visit-btn.primary { background: #F5F2EB; color: var(--dark); border: 1.5px solid #F5F2EB; }
+.home-visit-btn.primary:hover { background: transparent; color: #F5F2EB; }
+.home-visit-btn.ghost { border: 1.5px solid rgba(255,255,255,.45); color: #F5F2EB; }
+.home-visit-btn.ghost:hover { border-color: #F5F2EB; background: rgba(255,255,255,.06); }
+@media (max-width: 960px) {
+  .home-visit { padding: 80px 20px 72px; }
+  .home-visit-sub { margin-bottom: 40px; }
+  .home-visit-sub br { display: none; }
+  .home-stores { grid-template-columns: 1fr; margin-bottom: 44px; }
+  .home-store { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.18); padding: 28px 8px; }
+  .home-visit-btn { width: 100%; max-width: 320px; }
 }
 </style>
 </head>
@@ -1304,12 +1348,12 @@ footer {
 
 <!-- ─── Page Hero ───────────────────────────────────────────────── -->
 <section class="page-hero">
-  <img class="active" src="https://raw.githubusercontent.com/Maxx1521/south-home-linebot/master/assets/hero2.jpg" alt="">
-  <img src="https://raw.githubusercontent.com/Maxx1521/south-home-linebot/master/assets/hero3.jpg" alt="">
-  <img src="https://raw.githubusercontent.com/Maxx1521/south-home-linebot/master/assets/hero4.jpg" alt="">
-  <img src="https://raw.githubusercontent.com/Maxx1521/south-home-linebot/master/assets/hero5.jpg" alt="">
+  <img class="active" src="assets/hero2.jpg" alt="南島室物所 木地板空間實景">
+  <img src="assets/hero3.jpg" alt="深色木地板客廳實景">
+  <img src="assets/hero4.jpg" alt="木地板居家空間實景">
+  <img src="assets/hero5.jpg" alt="木地板室內設計實景">
   <div class="page-hero-content">
-    <p class="hero-eyebrow">NanDao Studio <span style="font-size:13px;">南島家居</span></p>
+    <p class="hero-eyebrow">NanDao Studio <span style="font-size:13px;">南島室物所</span></p>
     <p class="hero-slogan">以木與布，重新定義家的溫度</p>
   </div>
 </section>
@@ -1367,10 +1411,41 @@ footer {
       <p>每一塊木板以精準角度交錯排列，在地面構成沉靜而有節奏的紋路。無需多餘裝飾，人字拼本身就是空間的語言——溫潤、雅致，歷久彌新。</p>
       <a class="home-split-btn" href="#krono-herringbone">探索人字拼系列</a>
     </div>
-    <div class="home-split-img fi" style="padding-right: 80px; display:flex; align-items:center;">
-      <img src="assets/herringbone_room.jpg" alt="人字拼地板" style="width:100%; height:auto; object-fit:unset;">
+    <div class="home-split-img fi">
+      <img src="assets/herringbone_room.jpg" alt="人字拼地板空間實景" loading="lazy">
     </div>
   </div>
+
+  <!-- 4. Stores & Booking -->
+  <section class="home-visit fi">
+    <p class="home-visit-eyebrow">Visit Us<span>門市與預約</span></p>
+    <h2>親自踩踩看，<br>再決定要帶哪一塊回家</h2>
+    <p class="home-visit-sub">高雄左營・三民・苓雅三間門市，歡迎預約參觀；<br>也可以預約到府丈量，現場量尺寸、提供客製報價。</p>
+    <div class="home-stores">
+      <a class="home-store" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AB%98%E9%9B%84%E5%B8%82%E5%B7%A6%E7%87%9F%E5%8D%80%E5%8D%97%E5%B1%8F%E8%B7%AF206%E8%99%9F" target="_blank" rel="noopener">
+        <p class="home-store-area">North</p>
+        <p class="home-store-name">左營南屏店</p>
+        <p class="home-store-addr">高雄市左營區南屏路206號</p>
+        <span class="home-store-map">Google 地圖</span>
+      </a>
+      <a class="home-store" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AB%98%E9%9B%84%E5%B8%82%E4%B8%89%E6%B0%91%E5%8D%80%E5%A4%A7%E6%98%8C%E4%B8%80%E8%B7%AF362%E8%99%9F" target="_blank" rel="noopener">
+        <p class="home-store-area">Central</p>
+        <p class="home-store-name">三民大昌店</p>
+        <p class="home-store-addr">高雄市三民區大昌一路362號</p>
+        <span class="home-store-map">Google 地圖</span>
+      </a>
+      <a class="home-store" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AB%98%E9%9B%84%E5%B8%82%E8%8B%93%E9%9B%85%E5%8D%80%E9%9D%92%E5%B9%B4%E4%B8%80%E8%B7%AF109-2%E8%99%9F" target="_blank" rel="noopener">
+        <p class="home-store-area">South</p>
+        <p class="home-store-name">苓雅青年店</p>
+        <p class="home-store-addr">高雄市苓雅區青年一路109-2號</p>
+        <span class="home-store-map">Google 地圖</span>
+      </a>
+    </div>
+    <div class="home-visit-btns">
+      <a class="home-visit-btn primary" href="https://line.me/R/ti/p/@974qzwma" target="_blank" rel="noopener">LINE 預約丈量・參觀</a>
+      <a class="home-visit-btn ghost" href="https://www.instagram.com/south_woodenn/" target="_blank" rel="noopener">IG 看施工案例</a>
+    </div>
+  </section>
 
 </div>
 
@@ -2135,7 +2210,7 @@ footer {
 
 <!-- ─── CTA ──────────────────────────────────────────────────────── -->
 <section class="cta-section" id="contact">
-  <p class="eyebrow">南島 Nandao</p>
+  <p class="eyebrow">南島室物所</p>
   <h2>免費到府丈量<br>讓專家幫你選材</h2>
   <p class="sub">
     高雄左營・三民・苓雅 三間門市<br>
@@ -2151,7 +2226,7 @@ footer {
 <div id="care-page">
 
   <div class="care-hd">
-    <p class="eyebrow">南島 Nandao</p>
+    <p class="eyebrow">南島室物所</p>
     <h1>地板保養需知</h1>
     <p class="sub">每一種地板都有它的個性。了解它習慣的方式，才能讓它陪你走得長久。</p>
   </div>
@@ -2329,7 +2404,7 @@ footer {
 <div id="process-page">
 
   <div class="proc-header">
-    <p class="eyebrow">南島 Nandao</p>
+    <p class="eyebrow">南島室物所</p>
     <h1>服務流程</h1>
     <p class="sub">從預約到完工，南島全程陪你走。專業丈量、選材建議到施工驗收，每個環節我們都親力親為。</p>
   </div>
@@ -2390,7 +2465,7 @@ footer {
 <div id="warranty-page">
 
   <div class="wt-header">
-    <p class="eyebrow">南島 Nandao</p>
+    <p class="eyebrow">南島室物所</p>
     <h1>保固範圍</h1>
     <p class="sub">南島提供完整的產品與施工保固服務，讓您放心交給我們，安心住在美好的空間裡。</p>
   </div>
@@ -2490,7 +2565,7 @@ footer {
 </main>
 
 <footer>
-  <span>© 2026 南島 Nandao · 以木與布，重新定義家的溫度</span>
+  <span>© 2026 南島室物所 · 以木與布，重新定義家的溫度</span>
   <span>LINE @974qzwma · IG @south_woodenn</span>
 </footer>
 
