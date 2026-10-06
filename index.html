@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500&display=swap" rel="stylesheet">
@@ -1314,6 +1314,22 @@ footer {
   .menu-btn { display: none; }
   .page-hero { height: 100vh; }
 }
+/* ── Home view = image grid; About view = hero + story ── */
+#home-content.about-mode > :not(.home-about) { display: none; }
+#home-content:not(.about-mode) > .home-about { display: none; }
+body.home-grid .series { padding-top: 56px; }
+body.home-grid .site-header { background: #fff; border-bottom-color: #EEE; }
+@media (min-width: 961px) {
+  body.home-grid .series-hd { display: none; }
+  body.home-grid .series-grid { max-width: none; }
+  body.home-grid .series { padding: 56px 48px 120px 0; }
+  .brand-logo-img, body.dark-bg .site-header.header-transparent .brand-logo-img { width: 170px; }
+}
+@media (max-width: 960px) {
+  body.home-grid #home-content { padding-top: 96px; }
+  body.home-grid .series { padding-top: 24px; }
+  .brand-logo-img { height: 36px; }
+}
 </style>
 </head>
 <body>
@@ -1348,7 +1364,7 @@ footer {
       </div>
     </div>
   </nav>
-  <a class="site-logo" href="#"><img class="brand-logo-img" src="assets/nandao_wordmark_logo.png" alt="南島 Interior Materials"></a>
+  <a class="site-logo" href="#series"><img class="brand-logo-img" src="assets/logo_wordmark.png" alt="南島室物所 Interior Materials Studio"></a>
   <nav class="brand-nav brand-nav-right">
     <a href="#warranty">保固範圍</a>
     <div class="nav-dropdown">
@@ -1436,15 +1452,15 @@ footer {
       <p class="home-about-desc">我們陪每一位屋主，<br class="m">從無數的品牌、花色、規格，<br>篩選出真正適合這個家的答案。</p>
       <p class="home-about-closing">以木與布 ✧ 重新定義家的溫度，<br>這是我們一直在做的事。</p>
       <p class="home-about-invite">現在就來南島室物所，一起打造夢想的家。</p>
-      <a href="#series" class="home-about-btn">探索所有地板系列</a>
+      <a href="#series" class="home-about-btn">看嚴選地板</a>
     </div>
   </section>
 
   <!-- 2. Series Grid -->
   <section class="series" id="series">
     <div class="series-hd fi">
-      <p class="series-eyebrow">Series</p>
-      <h2>地板系列</h2>
+      <p class="series-eyebrow">Selected</p>
+      <h2>嚴選地板</h2>
     </div>
     <div class="series-grid">
       <a class="series-card fi" href="#sanwell">
@@ -2755,6 +2771,7 @@ const processEl  = document.getElementById('process-page');
 const careEl     = document.getElementById('care-page');
 
 function hideAll() {
+  document.body.classList.remove('home-grid');
   heroEl.style.display = 'none';
   brandSections.forEach(s => s.style.display = 'none');
   dividers.forEach(d => d.style.display = 'none');
@@ -2768,10 +2785,22 @@ function hideAll() {
 }
 
 function showHero() {
+  heroMode = false; darkBg = false;
+  hideAll();
+  document.body.classList.add('home-grid');
+  const _hc = document.getElementById('home-content');
+  if (_hc) { _hc.style.display = 'block'; _hc.classList.remove('about-mode'); }
+  footerEl.style.display = 'flex';
+  window.scrollTo(0, 0);
+  updateHeader();
+}
+
+function showAbout() {
   heroMode = true; darkBg = true;
   hideAll();
   heroEl.style.display = 'block';
-  const _hc = document.getElementById('home-content'); if (_hc) _hc.style.display = 'block';
+  const _hc = document.getElementById('home-content');
+  if (_hc) { _hc.style.display = 'block'; _hc.classList.add('about-mode'); }
   footerEl.style.display = 'flex';
   window.scrollTo(0, 0);
   updateHeader();
@@ -2838,13 +2867,12 @@ function showCare() {
 }
 
 function route(id) {
-  if (!id || id === 'about') {
+  if (!id || id === 'series') {
     showHero();
     history.pushState({ page: 'home' }, '', location.pathname);
-  } else if (id === 'series') {
-    showHero();
-    history.pushState({ page: 'home' }, '', location.pathname);
-    requestAnimationFrame(() => document.getElementById('series').scrollIntoView({ behavior: 'smooth' }));
+  } else if (id === 'about') {
+    showAbout();
+    history.pushState({ page: 'about' }, '', '#about');
   } else if (id === 'warranty') {
     showWarranty();
     history.pushState({ page: 'warranty' }, '', '#warranty');
@@ -2887,9 +2915,12 @@ window.addEventListener('popstate', e => {
 // init — restore page from URL hash on load/refresh
 (function initRoute() {
   const hash = location.hash.slice(1);
-  if (!hash || hash === 'about' || hash === 'series') {
+  if (!hash || hash === 'series') {
     showHero();
     history.replaceState({ page: 'home' }, '', location.pathname);
+  } else if (hash === 'about') {
+    showAbout();
+    history.replaceState({ page: 'about' }, '', '#about');
   } else if (hash === 'warranty') {
     showWarranty();
     history.replaceState({ page: 'warranty' }, '', '#warranty');
@@ -3036,7 +3067,7 @@ function lbClose() {
   document.body.style.overflow = '';
 }
 
-document.getElementById('ppage-main').addEventListener('click', () => {
+document.querySelector('.ppage-main').addEventListener('click', () => {
   if (!lbImgs.length) return;
   const curSrc = document.getElementById('ppage-main-img').src;
   const idx = lbImgs.findIndex(u => curSrc.includes(u.split('/').pop().split('?')[0]));
