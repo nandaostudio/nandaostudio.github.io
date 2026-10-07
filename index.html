@@ -1492,6 +1492,10 @@ body.landing .hero-enter:hover { background: #fff; color: #1C1C1C; }
 body.landing .hero-enter { padding: 0; border: 0; background: none; margin-top: 28px; font-family: Arial, "Helvetica Neue", sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 0; line-height: 30px; color: #FFF7F7; transition: color .3s; }
 body.landing .hero-enter:hover { background: none; color: #CCCCCC; }
 @media (max-width: 960px) { body.landing .hero-enter { font-size: 15px; } }
+/* series header: single centered lifestyle line */
+.series-hd { text-align: center; }
+.series-lead { font-family: "Noto Serif TC", serif; font-size: clamp(24px, 2.6vw, 34px); font-weight: 300; letter-spacing: 0.32em; color: #1C1C1C; margin: 0; padding-left: 0.32em; }
+@media (max-width: 960px) { .series-lead { font-size: 22px; letter-spacing: 0.24em; } }
 </style>
 </head>
 <body>
@@ -1619,8 +1623,7 @@ body.landing .hero-enter:hover { background: none; color: #CCCCCC; }
   <!-- 2. Series Grid -->
   <section class="series" id="series">
     <div class="series-hd fi">
-      <h2><span class="series-en">SELECTED.</span>嚴選地板</h2>
-      <p class="series-sub">12 個系列・木與石的日常選材</p>
+      <p class="series-lead">木與石的日常選材</p>
     </div>
     <div class="series-grid">
       <a class="series-card fi" href="#sanwell">
@@ -3114,6 +3117,9 @@ window.addEventListener('popstate', e => pageTransition(() => {
   else if (s && s.page === 'care') showCare();
   else showHero();
 }));
+
+// #series matches the grid's id, so the browser jumps past the header on load; undo that
+window.addEventListener('load', () => { if (location.hash === '#series') window.scrollTo(0, 0); });
 
 // init — restore page from URL hash on load/refresh
 (function initRoute() {
