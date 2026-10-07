@@ -1483,6 +1483,19 @@ body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animatio
 /* about hero: lighter */
 .page-hero img.active { opacity: .85; }
 .page-hero-content { text-shadow: 0 1px 12px rgba(0,0,0,.35); }
+/* landing: full-bleed slideshow + enter button */
+.hero-enter { display: none; }
+body.landing { padding-left: 0 !important; }
+body.landing .site-header, body.landing .menu-btn, body.landing .side-menu { display: none !important; }
+body.landing .page-hero { height: 100vh; height: 100svh; min-height: 0; }
+body.landing .page-hero-content { align-items: center; justify-content: center; text-align: center; padding: 0 24px; }
+body.landing .hero-enter {
+  display: inline-flex; align-items: baseline; gap: 12px; margin-top: 44px;
+  padding: 15px 40px; border: 1px solid rgba(255,255,255,.85); color: #fff; text-decoration: none;
+  font-size: 13px; letter-spacing: 0.3em; text-shadow: none; transition: background .3s, color .3s;
+}
+body.landing .hero-enter span { font-size: 13px; letter-spacing: 0.2em; }
+body.landing .hero-enter:hover { background: #fff; color: #1C1C1C; }
 </style>
 </head>
 <body>
@@ -1582,6 +1595,7 @@ body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animatio
   <div class="page-hero-content">
     <p class="hero-eyebrow">NanDao Studio <span style="font-size:13px;">南島室物所</span></p>
     <p class="hero-slogan">以木與布，重新定義家的溫度</p>
+    <a href="#series" class="hero-enter">ENTER<span>進入嚴選品牌</span></a>
   </div>
 </section>
 
@@ -2905,6 +2919,7 @@ const careEl     = document.getElementById('care-page');
 
 function hideAll() {
   document.body.classList.remove('home-grid');
+  document.body.classList.remove('landing');
   heroEl.style.display = 'none';
   brandSections.forEach(s => s.style.display = 'none');
   dividers.forEach(d => d.style.display = 'none');
@@ -2926,6 +2941,16 @@ function showHero() {
   footerEl.style.display = 'flex';
   window.scrollTo(0, 0);
   updateHeader();
+}
+
+function showLanding() {
+  heroMode = true; darkBg = true;
+  hideAll();
+  document.body.classList.add('landing');
+  heroEl.style.display = 'block';
+  window.scrollTo(0, 0);
+  updateHeader();
+  setTimeout(runTypewriter, 300);
 }
 
 function showAbout() {
@@ -3016,9 +3041,12 @@ function setSideActive(id) {
 
 function route(id) {
   setSideActive(id);
-  if (!id || id === 'series') {
+  if (!id) {
+    showLanding();
+    history.pushState({ page: 'landing' }, '', location.pathname);
+  } else if (id === 'series') {
     showHero();
-    history.pushState({ page: 'home' }, '', location.pathname);
+    history.pushState({ page: 'home' }, '', '#series');
   } else if (id === 'about') {
     showAbout();
     history.pushState({ page: 'about' }, '', '#about');
@@ -3110,7 +3138,9 @@ document.addEventListener('click', e => {
 // browser back / forward
 window.addEventListener('popstate', e => pageTransition(() => {
   const s = e.state;
-  if (s && s.page === 'product') showProductPage(s.data);
+  if (s && s.page === 'landing') showLanding();
+  else if (s && s.page === 'about') showAbout();
+  else if (s && s.page === 'product') showProductPage(s.data);
   else if (s && s.page === 'brand') showBrand(s.id, s.scrollY || 0);
   else if (s && s.page === 'contact') showContact();
   else if (s && s.page === 'warranty') showWarranty();
@@ -3123,9 +3153,12 @@ window.addEventListener('popstate', e => pageTransition(() => {
 (function initRoute() {
   const hash = location.hash.slice(1);
   setSideActive(hash);
-  if (!hash || hash === 'series') {
+  if (!hash) {
+    showLanding();
+    history.replaceState({ page: 'landing' }, '', location.pathname);
+  } else if (hash === 'series') {
     showHero();
-    history.replaceState({ page: 'home' }, '', location.pathname);
+    history.replaceState({ page: 'home' }, '', '#series');
   } else if (hash === 'about') {
     showAbout();
     history.replaceState({ page: 'about' }, '', '#about');
@@ -3144,7 +3177,7 @@ window.addEventListener('popstate', e => pageTransition(() => {
   } else if (hash === 'product') {
     // product detail can't be restored without card data, go home
     showHero();
-    history.replaceState({ page: 'home' }, '', location.pathname);
+    history.replaceState({ page: 'home' }, '', '#series');
   } else {
     showBrand(hash);
     history.replaceState({ page: 'brand', id: hash }, '', '#' + hash);
