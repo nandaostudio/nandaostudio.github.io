@@ -1479,6 +1479,7 @@ body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animatio
   .colors-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 10px; }
 }
 @media (min-width: 961px) { body.home-grid .series-grid { grid-template-columns: repeat(4, 1fr); gap: 48px 28px; } }
+.series-desc { font-size: 13px; color: var(--gray); line-height: 2; max-width: 640px; }
 </style>
 </head>
 <body>
@@ -2162,7 +2163,7 @@ body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animatio
     <p class="desc">KRONO Original 源自瑞士的地板工藝標竿，Picasso 系列以藝術家之名命名，每款色系都如一幅精心構圖——從淺金橡木到炭灰深木，細緻壓紋觸感超越表象的美學。</p>
   </div>
   <div class="color-section fi">
-    <div class="sec-heading">色系選擇 · 5 種花色</div>
+    <div class="sec-heading">Picasso · KO 系列 · 5 種花色</div>
     <div class="color-grid">
       <div class="color-card"><div class="color-card-img"><img src="https://www.krflooring.com.tw/wp-content/uploads/2025/03/picasso-a.jpg" alt="Picasso A" loading="lazy"></div><div class="color-name">Picasso 淺橡色</div></div>
       <div class="color-card"><div class="color-card-img"><img src="https://www.krflooring.com.tw/wp-content/uploads/2025/03/picasso-c.jpg" alt="Picasso C" loading="lazy"></div><div class="color-name">Picasso 暖棕色</div></div>
@@ -2193,27 +2194,13 @@ body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animatio
     </div>
   </div>
 
+  <div class="color-section fi">
+    <div class="sec-heading">寬版系列</div>
+    <p class="series-desc">寬板設計帶來更大氣的空間感，細緻木紋壓紋呈現自然質感，適合現代簡約或北歐風格空間。</p>
+  </div>
+
   <div class="brand-foot fi">
     <div class="price-block"><h3>Picasso · 8mm</h3><div class="price">NT $3,100 <sub>/ 坪起</sub></div></div>
-    <div class="cta-group"><a href="#contact" class="btn-outline">詢問報價</a><a href="https://line.me/R/ti/p/@974qzwma" target="_blank" class="btn-primary" style="background:var(--green)">預約丈量</a></div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ═══════════════════════════════════════════════════════════════
-     Krono 寬版系列
-════════════════════════════════════════════════════════════════ -->
-<section class="brand-section" id="krono-wide">
-  <div class="compact-hero fi">
-    <img src="https://www.krflooring.com.tw/wp-content/uploads/2025/03/picasso-a.jpg" alt="Krono 寬版系列">
-    <div class="compact-hero-title"><span>Krono 寬版系列</span></div>
-  </div>
-  <div class="brand-intro fi">
-    <p class="desc">寬板設計帶來更大氣的空間感，細緻木紋壓紋呈現自然質感，適合現代簡約或北歐風格空間。</p>
-  </div>
-  <div class="brand-foot fi">
-    <div class="price-block"><h3>寬版系列</h3><div class="price">NT $3,100 <sub>/ 坪起</sub></div></div>
     <div class="cta-group"><a href="#contact" class="btn-outline">詢問報價</a><a href="https://line.me/R/ti/p/@974qzwma" target="_blank" class="btn-primary" style="background:var(--green)">預約丈量</a></div>
   </div>
 </section>
@@ -2951,6 +2938,7 @@ function showAbout() {
 }
 
 function showBrand(id, scrollY = 0) {
+  if (id === 'krono-wide') id = 'krono-herringbone';
   heroMode = false; darkBg = id !== 'colors'; updateHeader();
   lastBrandId = id;
   const ppEl = document.getElementById('product-page');
