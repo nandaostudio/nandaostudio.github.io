@@ -1464,7 +1464,7 @@ body.pt-leave main, body.pt-leave footer, body.pt-leave #product-page { opacity:
 @keyframes ptIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animation: ptIn 1s cubic-bezier(.2,.7,.2,1) both; }
 @media (prefers-reduced-motion: reduce) { body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animation: none; } }
-/* ── 嚴選花色 page ── */
+/* ── 花色總覽 page ── */
 #colors { padding: 100px 72px 120px 32px; }
 .colors-hd { padding-bottom: 32px; margin-bottom: 40px; border-bottom: 1px solid #DADADA; }
 .colors-hd h2 { font-family: 'Zen Kaku Gothic Antique', "PingFang TC", "Microsoft JhengHei", sans-serif; font-size: 17px; font-weight: 400; letter-spacing: 0.08em; color: #1C1C1C; margin-bottom: 24px; }
@@ -1516,7 +1516,7 @@ body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animatio
     <div class="sm-body">
       <a class="sm-link" href="#about">ABOUT<span>關於我們</span></a>
       <a class="sm-link" href="#series">SELECTED<span>嚴選品牌</span></a>
-      <a class="sm-link" href="#colors">COLORS<span>嚴選花色</span></a>
+      <a class="sm-link" href="#colors">COLORS<span>花色總覽</span></a>
       <div class="sm-group">
         <button class="sm-toggle" type="button">PRODUCTS<span>產品分類</span></button>
         <div class="sm-sub">
@@ -1546,7 +1546,7 @@ body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animatio
 <div class="menu-overlay" id="menuOverlay">
   <button class="menu-close" id="menuClose">✕</button>
   <a href="#about" class="menu-link">關於我們</a>
-  <a href="#colors" class="menu-link">嚴選花色</a>
+  <a href="#colors" class="menu-link">花色總覽</a>
   <div class="acc-group">
     <div class="overlay-accordion">產品分類</div>
     <div class="acc-panel">
@@ -2443,7 +2443,7 @@ body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animatio
 <!-- ─── CTA ──────────────────────────────────────────────────────── -->
 <section class="brand-section" id="colors">
   <div class="colors-hd">
-    <h2><span class="series-en">COLORS.</span>嚴選花色</h2>
+    <h2><span class="series-en">COLORS.</span>花色總覽</h2>
     <div class="colors-filter" id="colorsFilter"></div>
   </div>
   <div class="color-grid colors-grid" id="colorsGrid"></div>
@@ -3054,7 +3054,7 @@ function pageTransition(go) {
   setTimeout(() => { go(); pageEnter(); ptBusy = false; }, PT_OUT);
 }
 
-// ── 嚴選花色: collect swatches from every brand page ──
+// ── 花色總覽: collect swatches from every brand page ──
 (function buildColors() {
   const names = { sanwell: '山井', sanxia: '三夏', aquastop: 'AquaStop', egger: 'EGGER', robina: 'ROBINA',
     dongwhal: 'Dongwhal', 'krono-herringbone': 'KRONO', 'krono-wide': 'KRONO', panstone: 'Panstone',
