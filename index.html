@@ -1507,6 +1507,9 @@ html body.landing .hero-enter { font-family: Arial, "Helvetica Neue", sans-serif
 @media (min-width: 961px) {
   .color-grid, .colors-grid, .bpage-grid { grid-template-columns: repeat(3, 1fr); gap: 40px 20px; }
 }
+/* colors page: lead line on a full-width photo banner */
+.colors-lead { display: flex; align-items: center; justify-content: center; min-height: 360px; margin: -100px -72px 56px -32px; padding: 0 0 0 0.32em; color: #fff; text-shadow: 0 1px 14px rgba(0,0,0,.35); background: linear-gradient(rgba(0,0,0,.28), rgba(0,0,0,.28)), url(assets/hero4.jpg) center 60% / cover no-repeat; }
+@media (max-width: 960px) { .colors-lead { min-height: 220px; margin: 0 -16px 36px; } }
 </style>
 </head>
 <body>
