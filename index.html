@@ -3083,6 +3083,7 @@ function pageTransition(go) {
       tag.textContent = label;
       n.appendChild(tag);
       grid.appendChild(n);
+      c.appendChild(tag.cloneNode(true));
     });
   });
   ['全部', ...brands].forEach((b, i) => {
