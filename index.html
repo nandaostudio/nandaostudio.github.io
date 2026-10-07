@@ -1488,9 +1488,10 @@ body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animatio
 body.landing { padding-left: 0 !important; }
 body.landing .site-header, body.landing .menu-btn, body.landing .side-menu { display: none !important; }
 body.landing .page-hero { height: 100vh; height: 100svh; min-height: 0; }
-body.landing .page-hero-content { align-items: center; justify-content: center; text-align: center; padding: 0 24px; }
+body.landing .page-hero-content { padding-left: 120px; }
+@media (max-width: 960px) { body.landing .page-hero-content { padding-left: 32px; } }
 body.landing .hero-enter {
-  display: inline-flex; align-items: baseline; gap: 12px; margin-top: 44px;
+  display: inline-flex; align-items: baseline; gap: 12px; margin-top: 32px;
   padding: 15px 40px; border: 1px solid rgba(255,255,255,.85); color: #fff; text-decoration: none;
   font-size: 13px; letter-spacing: 0.3em; text-shadow: none; transition: background .3s, color .3s;
 }
@@ -1595,7 +1596,7 @@ body.landing .hero-enter:hover { background: #fff; color: #1C1C1C; }
   <div class="page-hero-content">
     <p class="hero-eyebrow">NanDao Studio <span style="font-size:13px;">南島室物所</span></p>
     <p class="hero-slogan">以木與布，重新定義家的溫度</p>
-    <a href="#series" class="hero-enter">ENTER<span>進入嚴選品牌</span></a>
+    <a href="#series" class="hero-enter">ENTER</a>
   </div>
 </section>
 
