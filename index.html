@@ -1440,6 +1440,21 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .site-header::-webkit-scrollba
 @media (min-width: 961px) {
   .site-header, .site-header.header-transparent { border-right: 0; }
 }
+/* ── All-white backgrounds (photos excepted) ───────── */
+:root { --warm: #fff; }
+body, #home-content, .brand-section, .brand-foot, .feat-card-body, .bpage-feat, .bpage-feats,
+#warranty-page, #process-page, #care-page, .acc-panel, .menu-overlay, .nav-dropdown-menu,
+.series-img, .bpage-card-img, .color-card-img { background: #fff; }
+.brand-foot { border-top: 1px solid #EEE; border-bottom: 1px solid #EEE; }
+.cta-section { background: #fff; color: var(--dark); border-top: 1px solid #EEE; }
+.cta-section .eyebrow { opacity: .5; }
+.cta-section .btn-white { background: var(--dark); color: #fff; border-color: var(--dark); }
+.cta-section .btn-white:hover { background: #fff; color: var(--dark); }
+.cta-section .cta-back { border-color: var(--dark); color: var(--dark); }
+.proc-cta-inner { background: #fff; border: 1px solid var(--dark); }
+.proc-cta-txt { color: var(--dark); }
+.proc-cta-txt p { color: var(--gray); }
+.proc-cta-btn { background: var(--dark); color: #fff; }
 </style>
 </head>
 <body>
@@ -1474,7 +1489,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .site-header::-webkit-scrollba
       </div>
     </div>
   </nav>
-  <a class="site-logo" href="#series"><img class="brand-mark-img" src="assets/logo_sprout.svg?v=6" alt=""><img class="brand-logo-img" src="assets/logo_wordmark.png?v=4" alt="南島室物所 Interior Materials Studio"></a>
+  <a class="site-logo" href="#series"><img class="brand-logo-img" src="assets/logo_wordmark.png?v=4" alt="南島室物所 Interior Materials Studio"></a>
   <nav class="brand-nav brand-nav-right">
     <a href="#warranty">保固範圍</a>
     <div class="nav-dropdown">
@@ -2480,7 +2495,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .site-header::-webkit-scrollba
   </p>
   <div class="cta-btns">
     <a href="https://line.me/R/ti/p/@974qzwma" class="btn-white">LINE 預約丈量 →</a>
-    <a href="#sanwell" class="btn-outline" style="border-color:rgba(255,255,255,.4);color:white">回頂繼續瀏覽</a>
+    <a href="#sanwell" class="btn-outline cta-back">回頂繼續瀏覽</a>
   </div>
 </section>
 
