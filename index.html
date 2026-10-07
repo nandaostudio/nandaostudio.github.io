@@ -1459,10 +1459,10 @@ body, #home-content, .brand-section, .brand-foot, .feat-card-body, .bpage-feat, 
 .series-card h3, .series-card p { display: none; }
 .series-img { margin-bottom: 0; }
 /* ── Page transitions ── */
-main, footer, #product-page { transition: opacity .22s ease, transform .22s ease; }
+main, footer, #product-page { transition: opacity .45s ease, transform .45s ease; }
 body.pt-leave main, body.pt-leave footer, body.pt-leave #product-page { opacity: 0; transform: translateY(10px); }
 @keyframes ptIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
-body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animation: ptIn .55s cubic-bezier(.2,.7,.2,1) both; }
+body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animation: ptIn 1s cubic-bezier(.2,.7,.2,1) both; }
 @media (prefers-reduced-motion: reduce) { body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animation: none; } }
 </style>
 </head>
@@ -3072,14 +3072,14 @@ function route(id) {
 }
 
 // ── Page transition: fade current page out, new page in ──
-const PT_OUT = 220;
+const PT_OUT = 450;
 let ptBusy = false;
 function pageEnter() {
   document.body.classList.remove('pt-leave');
   document.body.classList.remove('pt-enter');
   void document.body.offsetWidth;
   document.body.classList.add('pt-enter');
-  setTimeout(() => document.body.classList.remove('pt-enter'), 700);
+  setTimeout(() => document.body.classList.remove('pt-enter'), 1100);
 }
 function pageTransition(go) {
   if (ptBusy || matchMedia('(prefers-reduced-motion: reduce)').matches) { go(); return; }
@@ -3087,7 +3087,6 @@ function pageTransition(go) {
   document.body.classList.add('pt-leave');
   setTimeout(() => { go(); pageEnter(); ptBusy = false; }, PT_OUT);
 }
-window.addEventListener('popstate', pageEnter);
 
 // intercept all internal hash link clicks
 document.addEventListener('click', e => {
@@ -3099,7 +3098,7 @@ document.addEventListener('click', e => {
 });
 
 // browser back / forward
-window.addEventListener('popstate', e => {
+window.addEventListener('popstate', e => pageTransition(() => {
   const s = e.state;
   if (s && s.page === 'product') showProductPage(s.data);
   else if (s && s.page === 'brand') showBrand(s.id, s.scrollY || 0);
@@ -3108,7 +3107,7 @@ window.addEventListener('popstate', e => {
   else if (s && s.page === 'process') showProcess();
   else if (s && s.page === 'care') showCare();
   else showHero();
-});
+}));
 
 // init — restore page from URL hash on load/refresh
 (function initRoute() {
