@@ -1432,6 +1432,11 @@ body.home-grid .site-header { background: #fff; border-bottom-color: #EEE; }
 /* hide scrollbars (scrolling still works) */
 html, body, .site-header { scrollbar-width: none; -ms-overflow-style: none; }
 html::-webkit-scrollbar, body::-webkit-scrollbar, .site-header::-webkit-scrollbar { display: none; width: 0; height: 0; }
+/* sidebar scrolls together with the page */
+@media (min-width: 961px) {
+  body { position: relative; min-height: 100vh; }
+  .site-header, .site-header.header-transparent { position: absolute; top: 0; bottom: 0; overflow: visible; }
+}
 </style>
 </head>
 <body>
