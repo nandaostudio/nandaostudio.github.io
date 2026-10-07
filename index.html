@@ -1464,6 +1464,20 @@ body.pt-leave main, body.pt-leave footer, body.pt-leave #product-page { opacity:
 @keyframes ptIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animation: ptIn 1s cubic-bezier(.2,.7,.2,1) both; }
 @media (prefers-reduced-motion: reduce) { body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animation: none; } }
+/* ── 嚴選花色 page ── */
+#colors { padding: 100px 72px 120px 32px; }
+.colors-hd { padding-bottom: 32px; margin-bottom: 40px; border-bottom: 1px solid #DADADA; }
+.colors-hd h2 { font-family: 'Zen Kaku Gothic Antique', "PingFang TC", "Microsoft JhengHei", sans-serif; font-size: 17px; font-weight: 400; letter-spacing: 0.08em; color: #1C1C1C; margin-bottom: 24px; }
+.colors-filter { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.colors-filter button { background: none; border: 0; padding: 0 0 3px; cursor: pointer; font: inherit; font-family: 'Zen Kaku Gothic Antique', "PingFang TC", sans-serif; font-size: 14px; letter-spacing: 0.06em; color: #9A9A9A; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.colors-filter button:hover { color: #1C1C1C; }
+.colors-filter button.on { color: #1C1C1C; border-bottom-color: #1C1C1C; }
+.colors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px 14px; }
+.color-brand { font-size: 11px; letter-spacing: 0.08em; color: #9A9A9A; margin-top: 2px; }
+@media (max-width: 960px) {
+  #colors { padding: 96px 16px 80px; }
+  .colors-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 10px; }
+}
 </style>
 </head>
 <body>
@@ -1500,6 +1514,7 @@ body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animatio
     <div class="sm-body">
       <a class="sm-link" href="#about">ABOUT<span>關於我們</span></a>
       <a class="sm-link" href="#series">SELECTED<span>嚴選品牌</span></a>
+      <a class="sm-link" href="#colors">COLORS<span>嚴選花色</span></a>
       <div class="sm-group">
         <button class="sm-toggle" type="button">PRODUCTS<span>產品分類</span></button>
         <div class="sm-sub">
@@ -1529,6 +1544,7 @@ body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animatio
 <div class="menu-overlay" id="menuOverlay">
   <button class="menu-close" id="menuClose">✕</button>
   <a href="#about" class="menu-link">關於我們</a>
+  <a href="#colors" class="menu-link">嚴選花色</a>
   <div class="acc-group">
     <div class="overlay-accordion">產品分類</div>
     <div class="acc-panel">
@@ -2437,6 +2453,14 @@ body.pt-enter main, body.pt-enter footer, body.pt-enter #product-page { animatio
 <div class="divider"></div>
 
 <!-- ─── CTA ──────────────────────────────────────────────────────── -->
+<section class="brand-section" id="colors">
+  <div class="colors-hd">
+    <h2><span class="series-en">COLORS.</span>嚴選花色</h2>
+    <div class="colors-filter" id="colorsFilter"></div>
+  </div>
+  <div class="color-grid colors-grid" id="colorsGrid"></div>
+</section>
+
 <section class="cta-section" id="contact">
   <p class="eyebrow">南島室物所</p>
   <h2>免費到府丈量<br>讓專家幫你選材</h2>
@@ -2926,7 +2950,7 @@ function showAbout() {
 }
 
 function showBrand(id, scrollY = 0) {
-  heroMode = false; darkBg = true; updateHeader();
+  heroMode = false; darkBg = id !== 'colors'; updateHeader();
   lastBrandId = id;
   const ppEl = document.getElementById('product-page');
   if (ppEl) ppEl.style.display = 'none';
@@ -3040,6 +3064,47 @@ function pageTransition(go) {
   document.body.classList.add('pt-leave');
   setTimeout(() => { go(); pageEnter(); ptBusy = false; }, PT_OUT);
 }
+
+// ── 嚴選花色: collect swatches from every brand page ──
+(function buildColors() {
+  const names = { sanwell: '山井', sanxia: '三夏', aquastop: 'AquaStop', egger: 'EGGER', robina: 'ROBINA',
+    dongwhal: 'Dongwhal', 'krono-herringbone': 'KRONO', 'krono-wide': 'KRONO', panstone: 'Panstone',
+    'twin-oaks': 'Twin Oaks', decoria: 'DECORIA', woodland: 'WoodLand' };
+  const grid = document.getElementById('colorsGrid');
+  const filter = document.getElementById('colorsFilter');
+  if (!grid) return;
+  const brands = [];
+  document.querySelectorAll('.brand-section').forEach(sec => {
+    if (sec.id === 'colors') return;
+    const cards = sec.querySelectorAll('.color-card');
+    if (!cards.length) return;
+    const label = names[sec.id] || sec.id;
+    if (!brands.includes(label)) brands.push(label);
+    cards.forEach(c => {
+      const n = c.cloneNode(true);
+      n.dataset.brand = label;
+      n.querySelectorAll('img').forEach(i => { i.loading = 'lazy'; i.addEventListener('error', () => n.remove()); });
+      const tag = document.createElement('div');
+      tag.className = 'color-brand';
+      tag.textContent = label;
+      n.appendChild(tag);
+      grid.appendChild(n);
+    });
+  });
+  ['全部', ...brands].forEach((b, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = b;
+    if (i === 0) btn.classList.add('on');
+    btn.addEventListener('click', () => {
+      filter.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === btn));
+      grid.querySelectorAll('.color-card').forEach(c => {
+        c.style.display = (i === 0 || c.dataset.brand === b) ? '' : 'none';
+      });
+    });
+    filter.appendChild(btn);
+  });
+})();
 
 // intercept all internal hash link clicks
 document.addEventListener('click', e => {
